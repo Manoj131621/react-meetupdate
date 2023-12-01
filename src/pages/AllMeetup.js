@@ -1,4 +1,5 @@
 import React from 'react'
+import MeetupList from '../meetup/MeetupList';
 
 const DUMMY_DATA = [
   {
@@ -25,11 +26,12 @@ const AllMeetup = () => {
   return (
     <div>
       <h1>AllMeetup</h1>
-      <ul>
+      {/* <ul>
         {DUMMY_DATA.map((meetup)=>{
           return <li key={meetup.id}>{meetup.title}</li>
         })}
-      </ul>
+      </ul> */}
+      <MeetupList meetups={DUMMY_DATA}/>
       </div>
   )
 }
