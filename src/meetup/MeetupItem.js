@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './MeetupItem.module.css'
 import Card from '../ui/Card'
 
-const MeetupItem = (props) => {
+function MeetupItem(props) {
   return (
     <li className={classes.item}>
       <Card>
