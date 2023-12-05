@@ -31,9 +31,18 @@ const AllMeetup = () => {
         return res.json();
       })
       .then((data) => {
+        const meetups=[];
+        for(const key in data){
+          const meetup={
+            id: key,
+            ...data[key]
+          }
+          meetups.push(meetup);
+        }
         setIsLoading(false);
-        setLoadedMeetups(data);
+        setLoadedMeetups(meetups);
       });
+    });
     if (isLoading) {
       return (
         <section>
@@ -41,7 +50,7 @@ const AllMeetup = () => {
         </section>
       );
     }
-  }, [isLoading]);
+  // }, []);
 
   return (
     <div>
@@ -51,7 +60,7 @@ const AllMeetup = () => {
           return <li key={meetup.id}>{meetup.title}</li>
         })}
       </ul> */}
-      <MeetupList meetups={DUMMY_DATA} />
+      <MeetupList meetups={loadedMeetups} />
     </div>
   );
 };
